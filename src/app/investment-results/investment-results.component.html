@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       @for(row of annualData(); track row.year) {
-      <tr>
+      <tr class="center">
         <td>{{ row.year }}</td>
         <td>{{ row.investment | currency : "USD" }}</td>
         <td>{{ row.interest | currency : "USD" }}</td>

@@ -50,4 +50,5 @@ export class InvestmentCalculatorComponent {
     }
     return annualData;
   }
+
 }

@@ -1,26 +1,26 @@
 @if (annualData().length > 0) {
-<table>
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>Investment Value</th>
-      <th>Interest (Year)</th>
-      <th>Total Interest</th>
-      <th>Invested Capital</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(row of annualData(); track row.year) {
-    <tr>
-      <td>{{ row.year }}</td>
-      <td>{{ row.investment | currency : "USD" }}</td>
-      <td>{{ row.interest | currency : "USD" }}</td>
-      <td>{{ row.totalInterest | currency : "USD" }}</td>
-      <td>{{ row.totalAmountInvested | currency : "USD" }}</td>
-    </tr>
-    }
-  </tbody>
-</table>
-} @else {
-<p>No data to show</p>
+<section class="investment-results">
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Investment Value</th>
+        <th>Interest (Year)</th>
+        <th>Total Interest</th>
+        <th>Invested Capital</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(row of annualData(); track row.year) {
+      <tr>
+        <td>{{ row.year }}</td>
+        <td>{{ row.investment | currency : "USD" }}</td>
+        <td>{{ row.interest | currency : "USD" }}</td>
+        <td>{{ row.totalInterest | currency : "USD" }}</td>
+        <td>{{ row.totalAmountInvested | currency : "USD" }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</section>
 }

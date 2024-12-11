@@ -3,12 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { Investment } from '../types/investment.model';
 import { AnnualData } from '../types/annual-data.model';
 import { InvestmentResultsComponent } from "../investment-results/investment-results.component";
-import { InvestmentHeaderComponent } from '../investment-header/investment-header.component';
 
 @Component({
   selector: 'investment-calculator',
   standalone: true,
-  imports: [FormsModule, InvestmentHeaderComponent, InvestmentResultsComponent],
+  imports: [FormsModule, InvestmentResultsComponent],
   templateUrl: './investment-calculator.component.html',
   styleUrl: './investment-calculator.component.css'
 })

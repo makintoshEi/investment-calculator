@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { AnnualData } from './types/annual-data.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InvestmentService {
-
-  constructor() { }
+  annualData = signal<AnnualData[]>([]);
 }

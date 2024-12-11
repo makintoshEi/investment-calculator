@@ -1,13 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Investment } from '../types/investment.model';
 import { AnnualData } from '../types/annual-data.model';
-import { InvestmentResultsComponent } from "../investment-results/investment-results.component";
+import { InvestmentService } from '../investment.service';
 
 @Component({
   selector: 'investment-calculator',
   standalone: true,
-  imports: [FormsModule, InvestmentResultsComponent],
+  imports: [FormsModule],
   templateUrl: './investment-calculator.component.html',
   styleUrl: './investment-calculator.component.css'
 })
@@ -17,10 +17,10 @@ export class InvestmentCalculatorComponent {
   annualInvestment = signal(0);
   expectedReturn = signal(0);
   duration = signal(0);
-  annualData = signal<AnnualData[]>([]);
+  investmentService = inject(InvestmentService);
 
   calculateInvestment() {
-    this.annualData.set(this.calculateInvestmentResults({
+    this.investmentService.annualData.set(this.calculateInvestmentResults({
       annualInvestment: this.annualInvestment(),
       duration: this.duration(),
       expectedReturn: this.expectedReturn(),

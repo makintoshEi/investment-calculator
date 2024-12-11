@@ -1,14 +1,15 @@
-import { Component, input } from '@angular/core';
-import { AnnualData } from '../types/annual-data.model';
+import { Component, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { InvestmentService } from '../investment.service';
 
 @Component({
   selector: 'investment-results',
   standalone: true,
-  imports: [ CurrencyPipe],
+  imports: [CurrencyPipe],
   templateUrl: './investment-results.component.html',
   styleUrl: './investment-results.component.css'
 })
 export class InvestmentResultsComponent {
-  annualData = input.required<AnnualData[]>();
+  investmentService = inject(InvestmentService);
+  results = this.investmentService.annualData.asReadonly();
 }

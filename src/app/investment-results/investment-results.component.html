@@ -1,4 +1,4 @@
-@if (annualData().length > 0) {
+@if (results().length > 0) {
 <section class="investment-results">
   <table>
     <thead>
@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      @for(row of annualData(); track row.year) {
+      @for(row of results(); track row.year) {
       <tr class="center">
         <td>{{ row.year }}</td>
         <td>{{ row.investment | currency : "USD" }}</td>

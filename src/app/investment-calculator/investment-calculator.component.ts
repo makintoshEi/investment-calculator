@@ -20,7 +20,7 @@ export class InvestmentCalculatorComponent {
   investmentService = inject(InvestmentService);
 
   calculateInvestment() {
-    this.investmentService.annualData.set(this.calculateInvestmentResults({
+    this.investmentService.setAnnualData(this.calculateInvestmentResults({
       annualInvestment: this.annualInvestment(),
       duration: this.duration(),
       expectedReturn: this.expectedReturn(),

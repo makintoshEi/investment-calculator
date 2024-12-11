@@ -5,5 +5,14 @@ import { AnnualData } from './types/annual-data.model';
   providedIn: 'root'
 })
 export class InvestmentService {
-  annualData = signal<AnnualData[]>([]);
+  private _annualData = signal<AnnualData[]>([]);
+
+  get annualData() {
+    return this._annualData;
+  }
+
+  setAnnualData(value: AnnualData[]) {
+    this._annualData.set(value);
+  }
+
 }
